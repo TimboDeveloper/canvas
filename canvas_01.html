@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="./default.css">
+
+		<title>Canvas 01</title>
+
+		<style>
+			#canvas1 {
+				background: #fff;
+				border: 1px solid black;
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<div id="container">
+			<canvas id="canvas1" width="500" height="500">
+				<h1>Canvas</h1>
+				<h3>Seu browser não possui suporte ao canvas</h3>
+				<!-- Essa mensagem só será renderizada quando o browser não possuir suporte ao canvas. -->
+			</canvas>
+		</div>
+
+		<script>
+			const context = document.querySelector('#canvas1').getContext('2d') // Obtem o contexto do canvas para trabalhos 2d
+
+			context.fillStyle = "#00f" // Define a cor de preenchimento
+			context.fillRect(10, 10, 100, 100) // Cria um retângulo 100x100 e já o preenche
+
+			context.fillStyle = "rgba(255, 0, 0, .6)" // Define a cor de preenchimento com opacidade
+			context.fillRect(50, 50, 100, 100) // Cria um retângulo posição: x=50 y=50, tamanho: 100x100 e já o preenche com a última cor definida
+
+			/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - *
+			* context.fillRect() define um quadrado e já o preenche com a última cor definida*
+			* no fillStyle e não altera os últimos criados.									 *
+			* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  */
+
+
+		</script>
+	</body>
+</html>
