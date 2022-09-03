@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+		<link rel="stylesheet" href="./default.css">
+
+		<title>Canvas 02</title>
+
+		<style>
+			#canvas1 {
+				background: #fff;
+				border: 1px solid black;
+			}
+		</style>
+
+		<script>
+			const desenha = () => {
+				const context = document.querySelector('#canvas1').getContext('2d') // Obtem o contexto do canvas para trabalhos 2d
+
+				context.fillStyle = "#00f" // Define a cor de preenchimento
+				context.rect(0, 0, 100, 100) // Cria um retângulo 100x100 mas não preenche
+
+				context.fill() // Preenche todos os elementos do canvas com a cor do fillStyle #00f
+
+				context.fillStyle = "#f00" // Define uma nova cor de preenchimento
+				context.rect(50, 50, 100, 100) // Cria um retângulo mas não preenche
+
+				context.fill() // Preenche todos os elementos do canvas com a cor do fillStyle #f00 inclusive os já criados anteriormente!
+
+			    /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - *
+				 * Mesmo deixando definido azul com o #00f, os elementos ficaram vermelho #f00. *
+				 * pois o context.fill() preenche a cor de todos os elementos do canvas com o    *
+				 * último fillStyle definido.													 *
+				 * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+				 
+				context.fillStyle = "#0f0" // Define uma nova cor de preenchimento
+				context.fillRect(200, 200, 200, 200) // Cria um retângulo posição: x=200 y=200, tamanho: 200x200 e já o preenche
+
+				context.clearRect(250, 250, 100, 100) // Apaga uma área em x=250, y=250 e tamanho: 100x100
+			}
+		</script>
+
+	</head>
+
+	<body onload="desenha()">
+		<div id="container">
+			<canvas id="canvas1" width="500" height="500">
+				<h1>Canvas</h1>
+				<h3>Seu browser não possui suporte ao canvas</h3>
+				<!-- Essa mensagem só será renderizada quando o browser não possuir suporte ao canvas. -->
+			</canvas>
+		</div>
+	</body>
+</html>
